@@ -1,0 +1,60 @@
+rad:
+  train_file: [ 'D:/MUMC/data/vqa/data_RAD/trainset.json' ]
+  test_file: [ 'D:/MUMC/data/vqa/data_RAD/testset.json' ]
+  answer_list: 'D:/MUMC/data/vqa/data_RAD/answer_list.json'
+  vqa_root: 'D:/MUMC/data/vqa/data_RAD/images/'  # vqa_rad
+pathvqa:
+  train_file: [ 'D:/MUMC/data/vqa/data_PathVQA/trainset.json',
+                'D:/MUMC/data/vqa/data_PathVQA/valset.json' ]
+  test_file: [ 'D:/MUMC/data/vqa/data_PathVQA/testset.json' ]
+  answer_list: 'D:/MUMC/data/vqa/data_PathVQA/answer_list.json'
+  vqa_root: 'D:/FusionMamba-main/data/vqa/data_PathVQA/images'
+slake:
+  train_file: [ 'D:/MUMC/data/vqa/data_Slake/slake_train.json',
+                'D:/MUMC/data/vqa/data_Slake/slake_val.json' ]
+  test_file: [ 'D:/MUMC/data/vqa/data_Slake/slake_test.json' ]
+  answer_list: 'D:/MUMC/data/vqa/data_Slake/answer_trainval_list.json'
+  vqa_root: 'D:/MUMC/data/vqa/data_Slake/imgs/'  # slake
+
+tcm:
+  train_file: [ 'D:/FusionMamba-main/data/vqa/data_tcm/train.json',
+                'D:/FusionMamba-main/data/vqa/data_tcm/val.json']
+  test_file: [ 'D:/FusionMamba-main/data/vqa/data_tcm/test.json' ]
+  answer_list: 'D:/FusionMamba-main/data/vqa/data_tcm/answer_list.json'
+  vqa_root: 'D:/FusionMamba-main/data/vqa/data_tcm'  # tcm
+
+image_res: 384      # 480  384  256
+batch_size_train: 4
+batch_size_test: 2
+k_test: 128
+
+alpha: 0.4
+distill: True
+warm_up: True
+
+eos: '[SEP]'
+bert_config: 'configs/config_bert.json'
+
+# optimizer
+init_lr: 2e-5
+weight_decay: 0.05
+min_lr: 1e-8
+max_epoch: 1
+
+model_num_frames: 16
+test_num_frames: 16
+vision_width: 1024
+use_checkpoint: true
+num_workers: 24
+
+optimizer: {lr: 2e-5, lr1: 2e-5, lr2: 2e-6, opt: adamW, weight_decay: 0.05, betas: [0.9, 0.999]}
+
+schedular: {cooldown_epochs: 0, decay_rate: 1, epochs: 10, lr: 2e-5, min_lr: 1e-06,
+  sched: cosine_step, warmup_epochs: 200, warmup_lr: 1e-06}
+
+add_ocr: true
+min_length: 1
+max_length: 100
+beam_size: 5 
+# clip_name: ViT-L/14
+

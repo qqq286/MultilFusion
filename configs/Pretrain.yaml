@@ -1,0 +1,43 @@
+
+train_file: [
+    'D:/MUMC/data/medical/medical_image_caption/ROCOV2/train.json',
+    'D:/MUMC/data/medical/medical_image_caption/ROCOV2/valid.json',
+    'D:/MUMC/data/medical/medical_image_caption/ROCOV2/test.json',
+]
+image_root: 'D:\MUMC\data\medical\medical_image_caption'
+
+text_config: 'D:/MUMC/weights/pre_training/bert-base-uncased'
+bert_config: 'configs/config_bert.json'
+
+
+vision_deit_path: 'D:/MUMC/weights/pre_training/vision_pth/deit-base-patch16-224'
+vit_mae_pretrain_path: 'D:/MUMC/weights/pre_training/vision_pth/mae_pretrain_vit_base.pth'
+
+image_res: 256
+vision_width: 768     #  768
+embed_dim: 256  # 193 # 129 # 256
+batch_size: 32   #32
+temp: 0.1  #0.07
+mlm_probability: 0.15
+queue_size: 65536
+momentum: 0.999  #0.995
+alpha: 0.2
+
+# optimizer
+weight_decay: 0.02  #0.05
+init_lr: 0.00001  #1e-4
+min_lr: 1e-6
+warmup_lr: 1e-6
+lr_decay_rate: 0.9 # 0.9
+max_epoch: 50
+warmup_steps: 3000
+
+
+# hidden_size: 768    # 768
+# n_clusters: 10
+# fusion_layers: 6
+ 
+# num_attention_heads: 12
+# intermediate_size: 3072
+# hidden_dropout_prob: 0.1
+ 
